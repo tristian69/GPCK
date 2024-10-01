@@ -59,3 +59,18 @@ def question_vote(request, question_id):
     else:
         question.voter.add(request.user)
     return redirect('iils:detail', question_id=question.id)
+
+@login_required(login_url='common:login')
+def product_create(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES) # 꼭 !!!! files는 따로 request의 FILES로 속성을 지정해줘야 함
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.author = request.user
+            product.detailfunc = product.detailfunc.replace("'", "").replace("[", "").replace("]", "")
+            product.save()
+            return redirect('iils:index')
+    else:
+        form = ProductForm() # request.method 가 'GET'인 경우
+    context = {'form':form}
+    return render(request, 'iils/question_form.html', context)
