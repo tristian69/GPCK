@@ -1,5 +1,5 @@
-from django.urls import path
-from .views import base_views, question_views, answer_views, report_views
+from django.urls import path, include
+from .views import base_views, question_views, answer_views
 
 app_name = 'iils'
 
@@ -20,10 +20,5 @@ urlpatterns = [
     path('answer/modify/<int:answer_id>/', answer_views.answer_modify, name='answer_modify'),
     path('answer/delete/<int:answer_id>/', answer_views.answer_delete, name='answer_delete'),
     path('answer/vote/<int:answer_id>/', answer_views.answer_vote, name='answer_vote'),
-
-    #report
-    #path('uploadExcelDataToTargetTag', report_views.uploadExcelDataToTargetTag, name='uploadExcelDataToTargetTag'),
-    #path('downloadExcelData', report_views.downloadExcelData, name='downloadExcelData'),
-
 
 ]

@@ -35,6 +35,10 @@ ALLOWED_HOSTS = ['52.79.143.4']
 # Application definition
 
 INSTALLED_APPS = [
+    'api_gateway.apps.ApiGatewayConfig',
+    'monitoring.apps.MonitoringConfig',
+    'dashboard.apps.DashboardConfig',
+    'report.apps.ReportConfig',
     'common.apps.CommonConfig',
     'iils.apps.IilsConfig',
     'django.contrib.admin',

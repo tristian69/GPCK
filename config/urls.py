@@ -19,15 +19,19 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from iils import views
+from iils.views import base_views
+
+app_name ='iils'
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('iils/', include('iils.urls')),
     path('common/', include('common.urls')),
-    path('', views.index, name='index'),  # '/' 에 해당되는 path
-    #path('', views.map, name='map'),  # / 페이지에 해당하는 urlpatterns
-
+    path('monitoring/', include('monitoring.urls')),
+    path('report/', include('report.urls')),
+    path('dashboard/', include('dashboard.urls')),
+    path('api_gateway/', include('api_gateway.urls')),
+    path('', base_views.index, name='index'),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # media 경로 추가
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # static 경로 추가

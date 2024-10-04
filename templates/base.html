@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-    <!-- pybo CSS -->
+    <!-- iils CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title> 통합정보연계시스템 TEST SITE </title>
 </head>
 <body>
-
-<a href="{% url 'iils:index' %}">
-      <h1 class = "text-center" > 통합정보연계시스템 TEST SITE </h1>
+<br>
+    <a class="text-center" href="{% url 'iils:index' %}" >
+      <h1 class = "text-center" >통합정보연계시스템 TEST SITE</h1>
     </a>
-    <a class="btn btn-primary" href="https://kats.go.kr/main.do">
-      <h4 class = "text-center"> 국가기술표준원 </h4>
-
+<br>
+    <a class="btn btn-primary" href="#">
+        <img src="/static/images/kats_01.jpg" class="card-img-top" alt="HOME">
+      <h5 class = "text-center"> 국가기술표준원 </h5>
     </a>
-
 <!-- 네비게이션바 -->
 {% include "navbar.html" %}
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
